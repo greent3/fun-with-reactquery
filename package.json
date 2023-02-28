@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@prisma/client": "^4.10.1",
     "concurrently": "^7.6.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
@@ -9,5 +10,8 @@
     "client": " yarn --cwd client dev",
     "server": "nodemon index",
     "start": "concurrently \"yarn run server\" \"yarn run client\""
+  },
+  "devDependencies": {
+    "prisma": "^4.10.1"
   }
 }

@@ -5,11 +5,11 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import CloseIcon from '@mui/icons-material/Close';
 
 
-function CopyableText({ text }: { text: string }) {
+function CopyableText({ name, value }: { name: string, value: string }) {
     const [toastOpen, setToastOpen] = useState(false)
 
     function copyToClipboard(text: string) {
-        navigator.clipboard.writeText(text);
+        navigator.clipboard.writeText(value);
         setToastOpen(true);
     }
 
@@ -30,8 +30,9 @@ function CopyableText({ text }: { text: string }) {
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-            <Typography sx={{ color: '#757575', fontWeight: 600 }}>{text}</Typography>
-            <IconButton onClick={() => copyToClipboard(text)}>
+            <Typography sx={{ color: '#757575', fontWeight: 600, mr: 2 }}>{name}</Typography>
+            <Typography sx={{ color: '#757575', fontWeight: 600 }}>{value}</Typography>
+            <IconButton onClick={() => copyToClipboard(value)}>
                 <ContentCopyIcon />
             </IconButton>
             <Snackbar

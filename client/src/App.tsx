@@ -6,8 +6,16 @@ import CopyableText from './components/CopyableText';
 function App() {
 
   var colorList = [
-    '#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed',
-    '#ff69b4', '#ba55d3', '#cd5c5c', '#ffa500', '#40e0d0'
+    { name: 'red-orange', value: '#ff7f50' },
+    { name: 'sky-blue', value: '#87cefa' },
+    { name: 'lavender', value: '#da70d6' },
+    { name: 'lime-green', value: '#32cd32' },
+    { name: 'dark-blue', value: '#6495ed' },
+    { name: 'hot-pink', value: '#ff69b4' },
+    { name: 'purple', value: '#ba55d3' },
+    { name: 'maroon', value: '#cd5c5c' },
+    { name: 'orange', value: '#ffa500' },
+    { name: 'turquoise', value: '#40e0d0' }
   ];
 
   return (
@@ -20,7 +28,7 @@ function App() {
       <Typography variant={'h2'}>Example Hex Codes:</Typography>
 
       {colorList.map((color, i) =>
-        <CopyableText key={i} text={String(color)} />
+        <CopyableText key={i} name={color.name} value={color.value} />
       )}
     </Box>
   )
