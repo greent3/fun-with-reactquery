@@ -7,13 +7,13 @@ function updateColor(id: number, newColor: string) {
         .then((res) => res.data)
 }
 
-function useUpdateColor() {
+function useUpdateColor(id: number) {
     const queryClient = useQueryClient()
     return useMutation(
         ({ id, newColor }: { id: number, newColor: string }) => updateColor(id, newColor),
         {
             onSuccess: () => {
-                queryClient.invalidateQueries(["repoData"])
+                queryClient.invalidateQueries(["repoData", id])
                 console.log("Successfully Updated Color")
             },
             onError: (err) => {

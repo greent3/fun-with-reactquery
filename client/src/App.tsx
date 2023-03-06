@@ -1,6 +1,8 @@
-import { Box, Typography } from '@mui/material'
+import { Box, TextField, Typography } from '@mui/material'
+import { useState } from 'react';
 import ColoredBox from './components/ColoredBox'
 import CopyableText from './components/CopyableText';
+
 
 
 function App() {
@@ -25,7 +27,7 @@ function App() {
         <ColoredBox id={1} />
         <ColoredBox id={2} />
       </Box>
-      <Typography variant={'h2'}>Example Hex Codes:</Typography>
+      <Typography variant={'h2'}>Example Hex Codes: </Typography>
 
       {colorList.map((color, i) =>
         <CopyableText key={i} name={color.name} value={color.value} />

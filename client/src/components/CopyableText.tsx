@@ -2,7 +2,7 @@ import { IconButton, Snackbar, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import { useState } from 'react'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import CloseIcon from '@mui/icons-material/Close';
+import ToastAction from './ToastAction';
 
 
 function CopyableText({ name, value }: { name: string, value: string }) {
@@ -13,20 +13,9 @@ function CopyableText({ name, value }: { name: string, value: string }) {
         setToastOpen(true);
     }
 
-    function handleClose(event: any) {
+    function handleClose() {
         setToastOpen(false)
     }
-
-    const action = (
-        <IconButton
-            size="small"
-            aria-label="close"
-            color="inherit"
-            onClick={handleClose}
-        >
-            <CloseIcon fontSize="small" />
-        </IconButton>
-    );
 
     return (
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
@@ -40,7 +29,7 @@ function CopyableText({ name, value }: { name: string, value: string }) {
                 autoHideDuration={1000}
                 onClose={handleClose}
                 message="Copied to clipboard!"
-                action={action}
+                action={<ToastAction handleClose={handleClose} />}
             />
         </Box >
     )
